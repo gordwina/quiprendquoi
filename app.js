@@ -7,7 +7,7 @@ const app = express();
 app.set('view engine', 'pug');
 
 app.get('/', function(req, res) {
-  res.send('index');
+  res.render('index',{title: "qui prend quoi ? "});
 });
 
 

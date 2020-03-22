@@ -15,8 +15,8 @@ app.get('/', function(req, res) {
 app.post('/party', (req, res) => {
     axios
         .post(`${process.env.API_URL}/party`, req.body)
-        .then(({data}) => console.log(data))
-        .catch((err) => console.error(err));
+        .then(({data}) => res.redirect(`/party/${data._id}`)) // Le res.redirect permet de rediriger le processus vers une autre route.
+        .catch((err) => res.send(err)); /// TODO@: FAIRE UNE 404
 });
 
 app.get('/party/:id', (req,res) => {
